@@ -1,0 +1,1031 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta Tags -->
+    <title>Media | Julian Ranieri - Photos & Videos</title>
+    <meta
+      name="title"
+      content="Media Gallery - Julian Ranieri Photos & Videos"
+    />
+    <meta
+      name="description"
+      content="Photo gallery and video content from Julian Ranieri. Live performances, studio sessions, portraits, and behind-the-scenes moments."
+    />
+    <meta
+      name="keywords"
+      content="Julian Ranieri photos, live performance, drums, guitar, sitar, studio, Bay Area musician"
+    />
+    <meta name="author" content="Julian Ranieri" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://music.julianranieri.com/media.html" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://music.julianranieri.com/media.html"
+    />
+    <meta property="og:title" content="Media Gallery - Julian Ranieri" />
+    <meta
+      property="og:description"
+      content="Photos and videos from live performances, studio sessions, and beyond."
+    />
+    <meta
+      property="og:image"
+      content="https://music.julianranieri.com/img/live-guitar.jpg"
+    />
+    <meta property="og:site_name" content="Julian Ranieri Music" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Media Gallery - Julian Ranieri" />
+    <meta
+      name="twitter:description"
+      content="Photos and videos from live performances, studio sessions, and beyond."
+    />
+    <meta
+      name="twitter:image"
+      content="https://music.julianranieri.com/img/live-guitar.jpg"
+    />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <style>
+      .page-header {
+        padding: calc(var(--space-2xl) + 80px) 0 var(--space-xl);
+        background: var(--bg-secondary);
+        text-align: center;
+      }
+
+      .page-header__label {
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: var(--accent-warm);
+        margin-bottom: var(--space-sm);
+      }
+
+      .gallery-section {
+        padding: var(--space-2xl) 0;
+      }
+
+      .gallery-filter {
+        display: flex;
+        justify-content: center;
+        gap: var(--space-sm);
+        margin-bottom: var(--space-xl);
+        flex-wrap: wrap;
+      }
+
+      .filter-btn {
+        padding: var(--space-xs) var(--space-md);
+        background: transparent;
+        border: 1px solid var(--border-subtle);
+        border-radius: 100px;
+        color: var(--text-secondary);
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .filter-btn:hover,
+      .filter-btn.active {
+        border-color: var(--accent-warm);
+        color: var(--accent-warm);
+        background: var(--glow-warm);
+      }
+
+      .masonry-gallery {
+        columns: 3;
+        column-gap: var(--space-md);
+      }
+
+      .gallery-item {
+        position: relative;
+        break-inside: avoid;
+        margin-bottom: var(--space-md);
+        border-radius: 4px;
+        overflow: hidden;
+        cursor: pointer;
+      }
+
+      .gallery-item img {
+        width: 100%;
+        display: block;
+        transition:
+          transform 0.6s ease,
+          filter 0.3s ease;
+      }
+
+      .gallery-item:hover img {
+        transform: scale(1.03);
+      }
+
+      .gallery-item__overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: var(--space-md);
+        background: linear-gradient(
+          to top,
+          rgba(13, 10, 8, 0.9) 0%,
+          transparent 100%
+        );
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .gallery-item:hover .gallery-item__overlay {
+        opacity: 1;
+      }
+
+      .gallery-item__caption {
+        font-size: 0.9rem;
+        color: var(--text-primary);
+      }
+
+      .gallery-item__tag {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--accent-warm);
+        margin-bottom: 4px;
+      }
+
+      /* Video Section */
+      .video-section {
+        background: var(--bg-secondary);
+        padding: var(--space-2xl) 0;
+      }
+
+      .video-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: var(--space-lg);
+      }
+
+      .video-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-subtle);
+        border-radius: 4px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .video-card:hover {
+        border-color: var(--border-accent);
+        transform: translateY(-4px);
+      }
+
+      .video-card__embed {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+      }
+
+      .video-card__embed iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      .video-card__placeholder {
+        aspect-ratio: 16/9;
+        background: var(--bg-elevated);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-muted);
+        gap: var(--space-sm);
+      }
+
+      .video-card__placeholder svg {
+        width: 48px;
+        height: 48px;
+        opacity: 0.5;
+      }
+
+      .video-card__content {
+        padding: var(--space-md);
+      }
+
+      .video-card__title {
+        font-family: var(--font-display);
+        font-size: 1.1rem;
+        color: var(--text-primary);
+        margin-bottom: var(--space-xs);
+      }
+
+      .video-card__description {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+      }
+
+      /* Lightbox */
+      .lightbox {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.95);
+        z-index: 1000;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: var(--space-lg);
+      }
+
+      .lightbox.active {
+        display: flex;
+      }
+
+      .lightbox__close {
+        position: absolute;
+        top: var(--space-md);
+        right: var(--space-md);
+        background: none;
+        border: none;
+        color: var(--text-primary);
+        font-size: 2rem;
+        cursor: pointer;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .lightbox__img {
+        max-width: 90vw;
+        max-height: 90vh;
+        object-fit: contain;
+      }
+
+      @media (max-width: 900px) {
+        .masonry-gallery {
+          columns: 2;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .masonry-gallery {
+          columns: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+      <div class="nav__inner">
+        <a href="/" class="nav__logo">Julian <span>Ranieri</span></a>
+        <ul class="nav__links" id="navLinks">
+          <li><a href="/" class="nav__link">Home</a></li>
+          <li><a href="/about.html" class="nav__link">About</a></li>
+          <li><a href="/media.html" class="nav__link active">Media</a></li>
+          <li><a href="/connect.html" class="nav__link">Connect</a></li>
+        </ul>
+        <button
+          class="nav__toggle"
+          id="navToggle"
+          aria-label="Toggle navigation"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+      <div class="container">
+        <p class="page-header__label">Gallery</p>
+        <h1>Media</h1>
+      </div>
+    </header>
+
+    <!-- Photo Gallery -->
+    <section class="gallery-section">
+      <div class="container">
+        <div class="section__header">
+          <p class="section__label">Moments</p>
+          <h2 class="section__title">Photos</h2>
+        </div>
+
+        <div class="gallery-filter">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="performance">
+            Performance
+          </button>
+          <button class="filter-btn" data-filter="portrait">Portrait</button>
+          <button class="filter-btn" data-filter="studio">Studio</button>
+        </div>
+
+        <div class="masonry-gallery" id="gallery">
+          <div class="gallery-item" data-category="portrait">
+            <img
+              src="img/hero.jpg"
+              alt="Julian Ranieri portrait against graffiti wall"
+              loading="lazy"
+            />
+            <div class="gallery-item__overlay">
+              <p class="gallery-item__tag">Portrait</p>
+              <p class="gallery-item__caption">Graffiti wall portrait</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="performance">
+            <img
+              src="img/dcs-cool-guys-guitar.jpg"
+              alt="Julian Ranieri playing guitar with DCS"
+              loading="lazy"
+            />
+            <div class="gallery-item__overlay">
+              <p class="gallery-item__tag">Performance</p>
+              <p class="gallery-item__caption">Playing guitar with DCS</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="performance">
+            <img
+              src="img/broth-band-dark.png"
+              alt="Julian Ranieri playing drums with Broth"
+              loading="lazy"
+            />
+            <div class="gallery-item__overlay">
+              <p class="gallery-item__tag">Performance</p>
+              <p class="gallery-item__caption">Playing drums with Broth</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="performance">
+            <img
+              src="img/sitar-tim-white-stage-dvc.jpg"
+              alt="Julian playing sitar"
+              loading="lazy"
+            />
+            <div class="gallery-item__overlay">
+              <p class="gallery-item__tag">Performance</p>
+              <p class="gallery-item__caption">Playing sitar with Tim at DVC</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="performance">
+            <img
+              src="img/drums-kwva-singing.jpg"
+              alt="Drumming and singing at KWVA"
+              loading="lazy"
+            />
+            <div class="gallery-item__overlay">
+              <p class="gallery-item__tag">Performance</p>
+              <p class="gallery-item__caption">KWVA - drums & vocals</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="performance">
+            <img
+              src="img/guitar-solo-dcs.jpg"
+              alt="Live performance with electric guitar"
+              loading="lazy"
+            />
+            <div class="gallery-item__overlay">
+              <p class="gallery-item__tag">Performance</p>
+              <p class="gallery-item__caption">Live show</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="performance">
+            <img
+              src="img/broth-band-farmers-market.jpg"
+              alt="Julian Ranieri playing drums with Broth"
+              loading="lazy"
+            />
+            <div class="gallery-item__overlay">
+              <p class="gallery-item__tag">Performance</p>
+              <p class="gallery-item__caption">Playing drums with Broth</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="portrait">
+            <img
+              src="img/portrait-snow.jpg"
+              alt="Portrait in the snow"
+              loading="lazy"
+            />
+            <div class="gallery-item__overlay">
+              <p class="gallery-item__tag">Portrait</p>
+              <p class="gallery-item__caption">Snow day</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="studio">
+            <img
+              src="img/radio-mic.jpg"
+              alt="Radio studio microphone session"
+              loading="lazy"
+            />
+            <div class="gallery-item__overlay">
+              <p class="gallery-item__tag">Studio</p>
+              <p class="gallery-item__caption">Radio interview</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="portrait">
+            <img
+              src="img/portrait-shadow.jpg"
+              alt="Shadow portrait"
+              loading="lazy"
+            />
+            <div class="gallery-item__overlay">
+              <p class="gallery-item__tag">Portrait</p>
+              <p class="gallery-item__caption">Shadow portrait</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="portrait">
+            <img
+              src="img/portrait-lake.jpg"
+              alt="Portrait by the lake"
+              loading="lazy"
+            />
+            <div class="gallery-item__overlay">
+              <p class="gallery-item__tag">Portrait</p>
+              <p class="gallery-item__caption">Lake portrait</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="performance">
+            <img
+              src="img/acoustic-coffee-house.jpg"
+              alt="Acoustic performance at coffee house"
+              loading="lazy"
+            />
+            <div class="gallery-item__overlay">
+              <p class="gallery-item__tag">Performance</p>
+              <p class="gallery-item__caption">Acoustic performance</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="portrait">
+            <img
+              src="img/portrait-graffiti.jpg"
+              alt="Close-up portrait with colorful background"
+              loading="lazy"
+            />
+            <div class="gallery-item__overlay">
+              <p class="gallery-item__tag">Portrait</p>
+              <p class="gallery-item__caption">Close-up portrait</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="portrait">
+            <img
+              src="img/meditation.jpg"
+              alt="Meditation in nature"
+              loading="lazy"
+            />
+            <div class="gallery-item__overlay">
+              <p class="gallery-item__tag">Portrait</p>
+              <p class="gallery-item__caption">Contemplation</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="portrait">
+            <img
+              src="img/portrait-blue-wall.jpg"
+              alt="Portrait against blue wall"
+              loading="lazy"
+            />
+            <div class="gallery-item__overlay">
+              <p class="gallery-item__tag">Portrait</p>
+              <p class="gallery-item__caption">Blue wall portrait</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="performance">
+            <img
+              src="img/reptilians-outside.jpg"
+              alt="Reptilians outdoor band photo"
+              loading="lazy"
+            />
+            <div class="gallery-item__overlay">
+              <p class="gallery-item__tag">Performance</p>
+              <p class="gallery-item__caption">Reptilians outdoor</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="studio">
+            <img
+              src="img/sitar-room-cool.jpg"
+              alt="Julian with sitar in studio"
+              loading="lazy"
+            />
+            <div class="gallery-item__overlay">
+              <p class="gallery-item__tag">Studio</p>
+              <p class="gallery-item__caption">Sitar session</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="studio">
+            <img
+              src="img/sitar-room.jpg"
+              alt="Sitar practice room"
+              loading="lazy"
+            />
+            <div class="gallery-item__overlay">
+              <p class="gallery-item__tag">Studio</p>
+              <p class="gallery-item__caption">Sitar practice</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="portrait">
+            <img
+              src="img/guitar-painting.jpg"
+              alt="Julian with guitar, painted style"
+              loading="lazy"
+            />
+            <div class="gallery-item__overlay">
+              <p class="gallery-item__tag">Portrait</p>
+              <p class="gallery-item__caption">Guitar portrait</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="performance">
+            <img
+              src="img/acoustic-guitar-e4e-solo.jpg"
+              alt="Acoustic guitar solo with Everything for Everyone"
+              loading="lazy"
+            />
+            <div class="gallery-item__overlay">
+              <p class="gallery-item__tag">Performance</p>
+              <p class="gallery-item__caption">E4E acoustic solo</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="performance">
+            <img
+              src="img/reptilians-hunter-house.jpg"
+              alt="Reptilians at Hunter House"
+              loading="lazy"
+            />
+            <div class="gallery-item__overlay">
+              <p class="gallery-item__tag">Performance</p>
+              <p class="gallery-item__caption">Reptilians at Hunter House</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="performance">
+            <img
+              src="img/garage-guitar-blcknwhite.jpg"
+              alt="Garage guitar session in black and white"
+              loading="lazy"
+            />
+            <div class="gallery-item__overlay">
+              <p class="gallery-item__tag">Performance</p>
+              <p class="gallery-item__caption">Garage session</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="portrait">
+            <img
+              src="img/brs-highway.jpg"
+              alt="BRS highway photo"
+              loading="lazy"
+            />
+            <div class="gallery-item__overlay">
+              <p class="gallery-item__tag">Portrait</p>
+              <p class="gallery-item__caption">Bitter Romantics Society</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="portrait">
+            <img
+              src="img/clockwork-orange-tamb.jpg"
+              alt="Playing tambourine as a droog from A Clockwork Orange"
+              loading="lazy"
+            />
+            <div class="gallery-item__overlay">
+              <p class="gallery-item__tag">Portrait</p>
+              <p class="gallery-item__caption">DCS before the show</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="portrait">
+            <img
+              src="img/gavin-matt-guitar.jpg"
+              alt="Playing a painted guitar by friends Gavin and Matt"
+              loading="lazy"
+            />
+            <div class="gallery-item__overlay">
+              <p class="gallery-item__tag">Portrait</p>
+              <p class="gallery-item__caption">A momento</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="performance">
+            <img
+              src="img/steel-town-with-mike-guitar.jpg"
+              alt="Steel Town performance with Mike"
+              loading="lazy"
+            />
+            <div class="gallery-item__overlay">
+              <p class="gallery-item__tag">Performance</p>
+              <p class="gallery-item__caption">Steel Town with Mike</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="performance">
+            <img
+              src="img/nine-drums-early.jpg"
+              alt="Early drums performance"
+              loading="lazy"
+            />
+            <div class="gallery-item__overlay">
+              <p class="gallery-item__tag">Performance</p>
+              <p class="gallery-item__caption">Early days on drums</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="performance">
+            <img
+              src="img/amakua-hand-drums.jpg"
+              alt="Playing hand drums with Amakua"
+              loading="lazy"
+            />
+            <div class="gallery-item__overlay">
+              <p class="gallery-item__tag">Performance</p>
+              <p class="gallery-item__caption">Amakua hand drums</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="performance">
+            <img
+              src="img/e4e-circle-group.jpg"
+              alt="Everything for Everyone group photo"
+              loading="lazy"
+            />
+            <div class="gallery-item__overlay">
+              <p class="gallery-item__tag">Performance</p>
+              <p class="gallery-item__caption">Everything for Everyone</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="performance">
+            <img
+              src="img/e4e-bass.jpg"
+              alt="Playing bass with Everything for Everyone"
+              loading="lazy"
+            />
+            <div class="gallery-item__overlay">
+              <p class="gallery-item__tag">Performance</p>
+              <p class="gallery-item__caption">E4E bass</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="performance">
+            <img
+              src="img/e4e-outside-drum-kit.jpg"
+              alt="Outdoor drum kit with Everything for Everyone"
+              loading="lazy"
+            />
+            <div class="gallery-item__overlay">
+              <p class="gallery-item__tag">Performance</p>
+              <p class="gallery-item__caption">E4E outdoor drums</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="performance">
+            <img
+              src="img/e4e-small.jpg"
+              alt="Everything for Everyone band Performance"
+              loading="lazy"
+            />
+            <div class="gallery-item__overlay">
+              <p class="gallery-item__tag">Performance</p>
+              <p class="gallery-item__caption">E4E band photo</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="portrait">
+            <img
+              src="img/everything-for-everyone-big.jpg"
+              alt="Everything for Everyone photo"
+              loading="lazy"
+            />
+            <div class="gallery-item__overlay">
+              <p class="gallery-item__tag">Portrait</p>
+              <p class="gallery-item__caption">Everything for Everyone</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="performance">
+            <img
+              src="img/garage-guitar.jpg"
+              alt="Garage guitar session"
+              loading="lazy"
+            />
+            <div class="gallery-item__overlay">
+              <p class="gallery-item__tag">Performance</p>
+              <p class="gallery-item__caption">Garage session</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="performance">
+            <img
+              src="img/dcs-awkward-smile-guitar.jpg"
+              alt="DCS performance with guitar"
+              loading="lazy"
+            />
+            <div class="gallery-item__overlay">
+              <p class="gallery-item__tag">Performance</p>
+              <p class="gallery-item__caption">DCS live</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="portrait">
+            <img
+              src="img/dcs-red-house-friends.jpg"
+              alt="DCS band photo at Red House"
+              loading="lazy"
+            />
+            <div class="gallery-item__overlay">
+              <p class="gallery-item__tag">Portrait</p>
+              <p class="gallery-item__caption">DCS at Red House</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="performance">
+            <img
+              src="img/dcs-red-house-stage.jpg"
+              alt="DCS on stage at Red House"
+              loading="lazy"
+            />
+            <div class="gallery-item__overlay">
+              <p class="gallery-item__tag">Performance</p>
+              <p class="gallery-item__caption">DCS Red House stage</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="performance">
+            <img
+              src="img/dcs-yeah-guitar.jpg"
+              alt="DCS guitar moment"
+              loading="lazy"
+            />
+            <div class="gallery-item__overlay">
+              <p class="gallery-item__tag">Performance</p>
+              <p class="gallery-item__caption">DCS guitar</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="performance">
+            <img
+              src="img/jaidon-young-guitar.jpg"
+              alt="Young Julian with guitar"
+              loading="lazy"
+            />
+            <div class="gallery-item__overlay">
+              <p class="gallery-item__tag">Performance</p>
+              <p class="gallery-item__caption">My brother as a kid learning guitar</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="portrait">
+            <img
+              src="img/broth-band-halloween.jpg"
+              alt="Broth band Halloween goofy photo"
+              loading="lazy"
+            />
+            <div class="gallery-item__overlay">
+              <p class="gallery-item__tag">Portrait</p>
+              <p class="gallery-item__caption">Broth Scooby-doo Halloween</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="portrait">
+            <img
+              src="img/broth-band-roof.png"
+              alt="Broth band rooftop photo"
+              loading="lazy"
+            />
+            <div class="gallery-item__overlay">
+              <p class="gallery-item__tag">Portrait</p>
+              <p class="gallery-item__caption">Broth rooftop</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="performance">
+            <img
+              src="img/drums-kwva.jpg"
+              alt="Drumming at KWVA"
+              loading="lazy"
+            />
+            <div class="gallery-item__overlay">
+              <p class="gallery-item__tag">Performance</p>
+              <p class="gallery-item__caption">KWVA drums</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="performance">
+            <img
+              src="img/broth-drums-house.png"
+              alt="Playing drums with Broth at house show"
+              loading="lazy"
+            />
+            <div class="gallery-item__overlay">
+              <p class="gallery-item__tag">Performance</p>
+              <p class="gallery-item__caption">Broth house show</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="performance">
+            <img
+              src="img/dcs-singing.jpg"
+              alt="Singing with DCS"
+              loading="lazy"
+            />
+            <div class="gallery-item__overlay">
+              <p class="gallery-item__tag">Performance</p>
+              <p class="gallery-item__caption">DCS vocals</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="portrait">
+            <img
+              src="img/anime-cover-band.jpg"
+              alt="Anime cover band group photo"
+              loading="lazy"
+            />
+            <div class="gallery-item__overlay">
+              <p class="gallery-item__tag">Portrait</p>
+              <p class="gallery-item__caption">Anime cover band</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="performance
+            <img
+              src="img/reptilians-color-blind-studios.jpg"
+              alt="Reptilians at Color Blind Studios"
+              loading="lazy"
+            />
+            <div class="gallery-item__overlay">
+              <p class="gallery-item__tag">Performance</p>
+              <p class="gallery-item__caption">Color Blind Studios</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+      <div class="container">
+        <div class="section__header">
+          <p class="section__label">Watch</p>
+          <h2 class="section__title">Videos</h2>
+          <p class="section__description">
+            Performances, sessions, and behind-the-scenes moments.
+          </p>
+        </div>
+
+        <div class="video-grid">
+          <div class="video-card">
+            <a
+              href="https://www.tiktok.com/@salt_serif"
+              target="_blank"
+              rel="noopener"
+            >
+              <div class="video-card__placeholder">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"
+                  />
+                </svg>
+                <span>View on TikTok</span>
+              </div>
+            </a>
+            <div class="video-card__content">
+              <h3 class="video-card__title">TikTok - @salt_serif</h3>
+              <p class="video-card__description">
+                Guitar clips, practice sessions, and musical moments.
+              </p>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <a
+              href="https://www.instagram.com/salt_serif/"
+              target="_blank"
+              rel="noopener"
+            >
+              <div class="video-card__placeholder">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0z"
+                  />
+                </svg>
+                <span>View on Instagram</span>
+              </div>
+            </a>
+            <div class="video-card__content">
+              <h3 class="video-card__title">Instagram Reels</h3>
+              <p class="video-card__description">
+                Behind the scenes and live clips.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+      <button class="lightbox__close" aria-label="Close">&times;</button>
+      <img src="" alt="" class="lightbox__img" id="lightboxImg" />
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p class="footer__copyright">
+          &copy; 2025 Julian Ranieri. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script>
+      // Gallery filter
+      const filterBtns = document.querySelectorAll(".filter-btn");
+      const galleryItems = document.querySelectorAll(".gallery-item");
+
+      filterBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          filterBtns.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+
+          const filter = btn.dataset.filter;
+          galleryItems.forEach((item) => {
+            if (filter === "all" || item.dataset.category === filter) {
+              item.style.display = "block";
+            } else {
+              item.style.display = "none";
+            }
+          });
+        });
+      });
+
+      // Lightbox
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightboxImg");
+      const lightboxClose = document.querySelector(".lightbox__close");
+
+      galleryItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          const img = item.querySelector("img");
+          lightboxImg.src = img.src;
+          lightboxImg.alt = img.alt;
+          lightbox.classList.add("active");
+          document.body.style.overflow = "hidden";
+        });
+      });
+
+      lightboxClose.addEventListener("click", () => {
+        lightbox.classList.remove("active");
+        document.body.style.overflow = "";
+      });
+
+      lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) {
+          lightbox.classList.remove("active");
+          document.body.style.overflow = "";
+        }
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && lightbox.classList.contains("active")) {
+          lightbox.classList.remove("active");
+          document.body.style.overflow = "";
+        }
+      });
+    </script>
+  </body>
+</html>
