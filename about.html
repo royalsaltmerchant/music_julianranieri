@@ -142,6 +142,7 @@
 
       .bio-section {
         padding: var(--space-2xl) 0;
+        scroll-margin-top: 90px;
       }
 
       .bio-grid {
@@ -255,6 +256,36 @@
         padding: var(--space-2xl) 0;
       }
 
+      .studio-support-section {
+        background: var(--bg-secondary);
+        padding: var(--space-2xl) 0;
+        scroll-margin-top: 90px;
+      }
+
+      .studio-support-section .section__header {
+        text-align: left;
+        margin: 0 0 var(--space-lg);
+      }
+
+      .studio-support-list {
+        border-top: 1px solid var(--border-subtle);
+      }
+
+      .studio-support-item {
+        padding: var(--space-md) 0;
+        border-bottom: 1px solid var(--border-subtle);
+      }
+
+      .studio-support-item h3 {
+        margin-bottom: var(--space-xs);
+        color: var(--text-primary);
+      }
+
+      .studio-support-item p {
+        max-width: 760px;
+        margin-bottom: 0;
+      }
+
       .timeline {
         position: relative;
         max-width: 800px;
@@ -358,7 +389,7 @@
     </header>
 
     <!-- Main Bio Section -->
-    <section class="bio-section">
+    <section class="bio-section" id="story">
       <div class="container">
         <div class="bio-grid">
           <div class="bio-image-stack">
@@ -368,6 +399,7 @@
             <img src="img/drums-kwva.jpg" loading="lazy" />
           </div>
           <div class="bio-text">
+            <p class="section__label">The Story</p>
             <h2>A Journey Through Sound</h2>
 
             <p>
@@ -430,7 +462,14 @@
               >. The skills I learned there were invaluable to me and I put them
               to great use throughout the years, whether for producing for
               friends, family or myself. After I met my business partner Tom,
-              while working at Academy of Art University in SF, we founded
+              while working at
+              <a
+                href="https://www.academyart.edu/"
+                target="_blank"
+                rel="noopener"
+                >Academy of Art University</a
+              >
+              in SF, we founded
               <a
                 href="https://sfaudioguild.com/"
                 target="_blank"
@@ -455,26 +494,79 @@
               >.
             </p>
 
-            <h3>These Days...</h3>
+            <h3>These Days</h3>
 
             <p>
-              These days I play drums for the experimental jazz trio
+              I play drums with the experimental jazz trio
               <a
                 href="https://majiktea.netlify.app/about/"
                 target="_blank"
                 rel="noopener"
                 >Majik Tea</a
-              >. Although I have sat in with pop punk bands (Daily City
-              Symphony), Motown cover groups (GT Groove), psychedelic rock
-              projects, and folk ensembles across the Bay, I would rather keep
-              it close to the heart. I perform a gig every now and again,
-              usually with my brother
+              >, keep writing and recording in different corners of my life, and
+              still find my way into one-off performances, sessions, and
+              collaborations across the Bay. I have sat in with pop punk bands,
+              Motown cover groups, psychedelic rock projects, and folk
+              ensembles, but I usually prefer to keep the work close to the
+              heart. Every now and again I perform with my brother
               <a
                 href="https://www.instagram.com/thekingjaidon_/"
                 target="_blank"
                 rel="noopener"
                 >Jaidon Ranieri</a
-              >.
+              >, which is one of the arrangements that feels most natural to me.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="studio-support-section" id="studio-support">
+      <div class="container container--narrow">
+        <div class="section__header">
+          <p class="section__label">Studio Work</p>
+          <h2 class="section__title">Recording, Mixing & Session Support</h2>
+          <p class="section__description">
+            I can help artists move a song, session, or event from a loose idea
+            into a more finished, intentional piece of work. Sometimes that
+            means sitting at the console. Sometimes it means playing, arranging,
+            documenting, or simply helping the room stay musical.
+          </p>
+        </div>
+
+        <div class="studio-support-list">
+          <div class="studio-support-item">
+            <h3>Recording & Mixing</h3>
+            <p>
+              Engineering and mixing for songs, demos, live sessions, and
+              experimental projects, with an ear toward feel, clarity, and the
+              character of the performance.
+            </p>
+          </div>
+
+          <div class="studio-support-item">
+            <h3>Production & Arrangement</h3>
+            <p>
+              Support with arrangement, texture, pacing, tone, and direction
+              when a song or project needs another perspective.
+            </p>
+          </div>
+
+          <div class="studio-support-item">
+            <h3>Assistant & Session Work</h3>
+            <p>
+              Assistant engineering, practical studio help, and collaborative
+              musicianship on drums, guitar, bass, vocals, sitar, or whatever
+              the piece needs.
+            </p>
+          </div>
+
+          <div class="studio-support-item">
+            <h3>Live Events</h3>
+            <p>
+              Performance support, live-event audio help, and
+              documentation-minded setup for intimate shows, sessions, and
+              community music gatherings.
             </p>
           </div>
         </div>

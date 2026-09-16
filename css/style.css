@@ -368,6 +368,14 @@ a:hover {
   margin: 0 auto;
 }
 
+.section-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-lg);
+}
+
 /* Featured Links (Streaming) */
 .stream-links {
   display: flex;
